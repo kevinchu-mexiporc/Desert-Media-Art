@@ -20,17 +20,21 @@ else:
     led = neopixel.NeoPixel(board.NEOPIXEL, 1)
 i = 0
 t = 0
+j = 0
 led.brightness = 0
 while True:
     t = t + 1
     if t % 3 == 1:
         led[0] = (0, 0, 255)
+        j = 30000
     if t % 3 == 2:
         led[0] = (255, 255, 255)
+        j = 30000
     if t % 3 == 0:
         led[0] = (255, 0, 0)
+        j = 100000
 
-    while (i < 30000):
+    while (i < j):
         i = i + 1
         led.brightness = i/100000
     while (i > 0):
